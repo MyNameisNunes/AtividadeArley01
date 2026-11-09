@@ -1,0 +1,269 @@
+.pagina {
+  display: grid;
+  gap: 64px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 0;
+}
+
+/* ---------- Apresentação ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.heroTexto {
+  display: grid;
+  gap: 18px;
+}
+
+.sobretitulo {
+  color: var(--ink-600);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.titulo {
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.lead {
+  max-width: 58ch;
+  color: var(--ink-700);
+  font-size: 1.125rem;
+}
+
+.lead strong {
+  color: var(--ink-950);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* ---------- Seções ---------- */
+
+.secao {
+  display: grid;
+  gap: 24px;
+}
+
+.secaoTopo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.secaoTitulo {
+  font-size: 1.625rem;
+}
+
+.secaoTexto {
+  color: var(--ink-600);
+}
+
+/* ---------- Cartões dos módulos ---------- */
+
+.modulos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+}
+
+.modulo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.modulo::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--accent);
+}
+
+.modulo:hover {
+  border-color: var(--accent-200);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.moduloTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.moduloIcone {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent-50);
+  color: var(--accent);
+}
+
+.moduloEtiqueta {
+  padding: 3px 10px;
+  border: 1px solid var(--accent-200);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.moduloTitulo {
+  font-size: 1.5rem;
+}
+
+.moduloTexto {
+  flex: 1;
+  color: var(--ink-600);
+}
+
+.moduloLinks {
+  display: grid;
+  gap: 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.moduloLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 0 10px;
+  margin: 0 -10px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.moduloLinks a:hover {
+  background: var(--accent-50);
+}
+
+.moduloLinks a svg {
+  transition: transform 150ms ease;
+}
+
+.moduloLinks a:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---------- Etapas ---------- */
+
+.etapas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  counter-reset: etapa;
+}
+
+.etapa {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-sunken);
+}
+
+/* Numeração decorativa gerada por CSS (o <ol> já informa a ordem). */
+.etapa::after {
+  content: counter(etapa, decimal-leading-zero);
+  counter-increment: etapa;
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  color: var(--line-strong);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.etapaIcone {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink-800);
+  box-shadow: var(--shadow-sm);
+}
+
+.etapaTitulo {
+  margin-top: 6px;
+  font-size: 1.1875rem;
+}
+
+.etapaTexto {
+  color: var(--ink-600);
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 959px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .modulos,
+  .etapas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 959px) {
+  .modulos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .modulos > li:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 639px) {
+  .pagina {
+    gap: 48px;
+    padding-top: 28px;
+  }
+}

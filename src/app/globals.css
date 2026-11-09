@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Registro Acadêmico — estilos globais e tokens de design
+   --------------------------------------------------------------------------
+   Os componentes usam CSS Modules. Este arquivo define apenas:
+   1. tokens (cores, tipografia, espaçamentos, sombras);
+   2. a cor de destaque de cada módulo (atributo data-modulo);
+   3. estilos base de elementos HTML e utilitários de acessibilidade.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Tipografia (variáveis criadas pelo next/font no layout raiz) */
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, Cambria,
+    "Times New Roman", serif;
+
+  /* Neutros: tinta e papel */
+  --ink-950: #0d1119;
+  --ink-900: #121722;
+  --ink-800: #1d2433;
+  --ink-700: #2e3646;
+  --ink-600: #4a5366;
+  --ink-500: #5f6779;
+  --ink-300: #c9cfdb;
+  --paper: #f5f4ef;
+  --surface: #ffffff;
+  --surface-sunken: #efede6;
+  --line: #e3e0d7;
+  --line-strong: #cfcbbf;
+
+  /* Paletas dos módulos */
+  --azul-50: #eef4ff;
+  --azul-100: #dce7fd;
+  --azul-200: #bcd0fb;
+  --azul-500: #3b6ff0;
+  --azul-600: #1d4ed8;
+  --azul-700: #1e40af;
+  --azul-claro: #93b4ff;
+
+  --verde-50: #edf8f1;
+  --verde-100: #dcf3e4;
+  --verde-200: #ade0c0;
+  --verde-500: #1f9d55;
+  --verde-600: #15803d;
+  --verde-700: #166534;
+  --verde-claro: #6fd69c;
+
+  --laranja-50: #fff5eb;
+  --laranja-100: #ffedd5;
+  --laranja-200: #fdcf9f;
+  --laranja-500: #ea6a17;
+  --laranja-600: #c2410c;
+  --laranja-700: #9a3412;
+  --laranja-claro: #ffa463;
+
+  /* Feedback */
+  --sucesso-fundo: #dcf3e4;
+  --sucesso-borda: #9fd8b4;
+  --sucesso-texto: #14532d;
+  --erro-fundo: #fdecec;
+  --erro-borda: #f3b4b4;
+  --erro-texto: #991b1b;
+  --alerta-fundo: #fff7e0;
+  --alerta-borda: #f2d58a;
+  --alerta-texto: #8a5a00;
+  --info-fundo: #eef4ff;
+  --info-borda: #bcd0fb;
+  --info-texto: #1e40af;
+
+  /* Cor de destaque padrão (páginas neutras, como a inicial) */
+  --accent-50: var(--surface-sunken);
+  --accent-100: #e6e3da;
+  --accent-200: var(--line-strong);
+  --accent-500: var(--ink-600);
+  --accent: var(--ink-800);
+  --accent-strong: var(--ink-900);
+  --accent-on-dark: #ffffff;
+
+  /* Forma e profundidade */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgb(18 23 34 / 0.06);
+  --shadow: 0 1px 2px rgb(18 23 34 / 0.05), 0 6px 18px -6px rgb(18 23 34 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(18 23 34 / 0.04), 0 18px 40px -12px rgb(18 23 34 / 0.18);
+
+  /* Layout */
+  --container: 1180px;
+  --gutter: 16px;
+  --header-height: 64px;
+  --focus-ring: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+/* Identidade de cada módulo: os componentes usam apenas --accent-*. */
+[data-modulo="alunos"] {
+  --accent-50: var(--azul-50);
+  --accent-100: var(--azul-100);
+  --accent-200: var(--azul-200);
+  --accent-500: var(--azul-500);
+  --accent: var(--azul-600);
+  --accent-strong: var(--azul-700);
+  --accent-on-dark: var(--azul-claro);
+}
+
+[data-modulo="disciplinas"] {
+  --accent-50: var(--verde-50);
+  --accent-100: var(--verde-100);
+  --accent-200: var(--verde-200);
+  --accent-500: var(--verde-500);
+  --accent: var(--verde-600);
+  --accent-strong: var(--verde-700);
+  --accent-on-dark: var(--verde-claro);
+}
+
+[data-modulo="matriculas"] {
+  --accent-50: var(--laranja-50);
+  --accent-100: var(--laranja-100);
+  --accent-200: var(--laranja-200);
+  --accent-500: var(--laranja-500);
+  --accent: var(--laranja-600);
+  --accent-strong: var(--laranja-700);
+  --accent-on-dark: var(--laranja-claro);
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--ink-900);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink-950);
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Ícones nunca encolhem dentro de contêineres flex. */
+svg {
+  flex-shrink: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent-100);
+  color: var(--ink-950);
+}
+
+code {
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  background: var(--surface-sunken);
+  color: var(--ink-800);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+/* Números com largura fixa: RAs e IDs alinham em listas e tabelas. */
+.numero {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ---------- Acessibilidade ---------- */
+
+/* Elementos que recebem foco por código (ex.: confirmação após cadastro). */
+.foco-programatico:focus {
+  outline: none;
+}
+
+.visualmente-oculto {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

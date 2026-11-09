@@ -1,0 +1,48 @@
+.falha {
+  outline: none;
+}
+
+.resumo {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.resumo > div {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--accent-200);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.resumo dt {
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.resumo dd {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.resumo dd span {
+  color: var(--ink-500);
+  font-size: 0.875rem;
+}
+
+.resumo .pendente {
+  color: var(--ink-500);
+  font-style: italic;
+}
+
+.regra {
+  color: var(--ink-700);
+  font-size: 0.875rem;
+}

@@ -1,0 +1,50 @@
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.indicador {
+  display: grid;
+  gap: 4px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.indicador dt {
+  color: var(--ink-600);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.indicador dd {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+
+.indicador dd span {
+  color: var(--accent-strong);
+  font-family: var(--font-serif);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.indicador dd small {
+  color: var(--ink-500);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+@media (max-width: 719px) {
+  .indicadores {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

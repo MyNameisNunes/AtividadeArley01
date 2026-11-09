@@ -1,0 +1,75 @@
+.cabecalho {
+  position: relative;
+  background: var(--ink-900);
+  color: #ffffff;
+}
+
+.conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  border-radius: var(--radius);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.marca:hover {
+  color: #ffffff;
+}
+
+.marca:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.marcaTexto {
+  display: grid;
+  line-height: 1.2;
+}
+
+.nome {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subtitulo {
+  color: var(--ink-300);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Faixa com as três cores dos módulos. */
+.faixa {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 3px;
+}
+
+.faixa span {
+  background: var(--accent-500);
+}
+
+@media (max-width: 719px) {
+  .conteudo {
+    padding-bottom: 6px;
+  }
+
+  .conteudo > nav {
+    flex-basis: 100%;
+  }
+}

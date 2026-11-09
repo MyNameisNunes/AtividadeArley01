@@ -1,0 +1,5 @@
+.faixa {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px var(--gutter) 0;
+}

@@ -1,0 +1,175 @@
+.detalhes {
+  display: grid;
+  gap: 24px;
+}
+
+/* ---------- Perfil ---------- */
+
+.perfil {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.perfilTopo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--accent-50) 0%, var(--surface) 75%);
+  border-bottom: 1px solid var(--line);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 1.625rem;
+  font-weight: 600;
+  box-shadow: 0 0 0 4px var(--surface), 0 0 0 5px var(--accent-200);
+}
+
+.identidade {
+  display: grid;
+  flex: 1 1 240px;
+  gap: 4px;
+  min-width: 0;
+}
+
+.nome {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+}
+
+.ra {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-600);
+}
+
+.ra strong {
+  color: var(--accent-strong);
+  font-size: 1.0625rem;
+}
+
+.origem {
+  padding: 4px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-700);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.origemLocal {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.dados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.dados > div {
+  display: grid;
+  gap: 2px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dados > div:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.dados > div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.dados dt {
+  color: var(--ink-500);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dados dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---------- Disciplinas ---------- */
+
+.secao {
+  display: grid;
+  gap: 14px;
+}
+
+.secaoTopo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.secaoTitulo {
+  font-size: 1.25rem;
+}
+
+.disciplinas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+
+.disciplina {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--verde-600);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.disciplinaId {
+  color: var(--verde-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 599px) {
+  .perfilTopo {
+    padding: 20px 16px;
+  }
+
+  .dados {
+    grid-template-columns: 1fr;
+  }
+
+  .dados > div {
+    padding: 14px 16px;
+    border-right: 0 !important;
+  }
+
+  .dados > div:nth-last-child(2) {
+    border-bottom: 1px solid var(--line);
+  }
+}

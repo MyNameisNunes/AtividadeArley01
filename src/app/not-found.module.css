@@ -1,0 +1,66 @@
+.pagina {
+  display: grid;
+  place-items: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 64px var(--gutter) 0;
+}
+
+.cartao {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 560px;
+  padding: 48px 32px 36px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.icone {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--surface-sunken);
+  color: var(--ink-700);
+}
+
+.codigo {
+  color: var(--ink-500);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.titulo {
+  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+}
+
+.texto {
+  max-width: 46ch;
+  margin-bottom: 8px;
+  color: var(--ink-600);
+}
+
+.atalhos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  margin-top: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  color: var(--ink-500);
+  font-size: 0.9375rem;
+}
+
+.atalhos a {
+  font-weight: 600;
+}

@@ -1,0 +1,28 @@
+.estrutura {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.principal {
+  flex: 1;
+  outline: none;
+}
+
+.pularConteudo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: var(--ink-900);
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 150ms ease;
+}
+
+.pularConteudo:focus {
+  transform: none;
+}

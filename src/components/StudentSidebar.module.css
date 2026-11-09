@@ -1,0 +1,234 @@
+.sidebar {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.topoIcone {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.topoTitulo {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.topoTexto {
+  color: var(--ink-500);
+  font-size: 0.8125rem;
+}
+
+/* ---------- Menu ---------- */
+
+.menu {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: var(--radius);
+  color: var(--ink-700);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.menuLink:hover {
+  background: var(--accent-50);
+  color: var(--accent-strong);
+}
+
+.ativo {
+  background: var(--accent-50);
+  color: var(--accent-strong);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+/* ---------- Acesso rápido ---------- */
+
+.secao {
+  display: grid;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.secaoTitulo {
+  color: var(--ink-500);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.alunos {
+  display: grid;
+  gap: 2px;
+  max-height: min(52vh, 460px);
+  margin: 0 -6px;
+  padding: 0 6px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.aluno {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--ink-900);
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.aluno:hover {
+  background: var(--accent-50);
+  color: var(--ink-900);
+}
+
+.avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent-100);
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.alunoTexto {
+  display: grid;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.alunoNome {
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alunoRa {
+  color: var(--ink-500);
+  font-size: 0.8125rem;
+}
+
+/* Aluno selecionado (rota /alunos/[ra]). */
+.selecionado {
+  border-color: var(--accent-200);
+  background: var(--accent-50);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.selecionado .avatar {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.selecionado .alunoNome {
+  color: var(--accent-strong);
+}
+
+/* Telas estreitas: o menu fica acima do conteúdo e o acesso rápido vira uma
+   faixa horizontal de "chips", mantendo o destaque do aluno selecionado. */
+@media (max-width: 899px) {
+  .sidebar {
+    position: static;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .secao {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .alunos {
+    display: flex;
+    gap: 8px;
+    max-height: none;
+    margin: 0 -16px;
+    padding: 2px 16px 6px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x proximity;
+  }
+
+  .alunos li {
+    flex: none;
+  }
+
+  .aluno {
+    padding: 5px 14px 5px 5px;
+    border-color: var(--line);
+    border-radius: 999px;
+    scroll-snap-align: start;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .alunoNome {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 519px) {
+  .menuLink {
+    gap: 8px;
+    padding: 0 10px;
+    font-size: 0.875rem;
+  }
+
+  .menuLink svg {
+    display: none;
+  }
+}

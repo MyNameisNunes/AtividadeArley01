@@ -1,0 +1,27 @@
+.secao {
+  display: grid;
+  gap: 16px;
+}
+
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.titulo {
+  font-size: 1.25rem;
+}
+
+.resumo {
+  color: var(--ink-500);
+  font-size: 0.875rem;
+}
+
+.lista {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}

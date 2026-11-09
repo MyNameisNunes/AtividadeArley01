@@ -1,0 +1,15 @@
+.falha {
+  outline: none;
+}
+
+.regras {
+  display: grid;
+  gap: 12px;
+  padding-left: 20px;
+  color: var(--ink-700);
+  font-size: 0.9375rem;
+}
+
+.regras li::marker {
+  color: var(--accent);
+}

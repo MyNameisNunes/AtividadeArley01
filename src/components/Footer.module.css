@@ -1,0 +1,47 @@
+.rodape {
+  margin-top: 64px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 24px var(--gutter);
+}
+
+.identificacao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nome {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.texto {
+  color: var(--ink-500);
+  font-size: 0.875rem;
+}
+
+.nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 46ch;
+  color: var(--ink-500);
+  font-size: 0.875rem;
+}
+
+.nota svg {
+  flex: none;
+  margin-top: 2px;
+}
